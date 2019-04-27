@@ -89,11 +89,11 @@ public final class Photo_Catcher extends AppCompatActivity {
         /*
          * Set up handlers for each button in our UI. These run when the buttons are clicked.
          */
-        /**final Button openFile = findViewById(R.id.openFile);
+        final Button openFile = findViewById(R.id.openFile);
         openFile.setOnClickListener(v -> {
             Log.d(TAG, "Open file button clicked");
             startOpenFile();
-        });*/
+        });
         final ImageButton takePhoto = findViewById(R.id.camera);
         takePhoto.setOnClickListener(v -> {
             Log.d(TAG, "Take photo button clicked");
