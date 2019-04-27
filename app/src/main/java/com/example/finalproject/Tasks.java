@@ -124,17 +124,17 @@ class Tasks {
         private static final String MS_CV_API_URL =
                 "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
 
-        /** Default visual features to request. You may need to change this value. */
-        private static final String MS_CV_API_DEFAULT_VISUAL_FEATURES =
-                //"Categories,Description,Faces,ImageType,Color,Adult";
-                "Categories,Tags,Description,Captions,Faces,ImageType,Color,Adult";
+//        /** Default visual features to request. You may need to change this value. */
+//        private static final String MS_CV_API_DEFAULT_VISUAL_FEATURES =
+//                //"Categories,Description,Faces,ImageType,Color,Adult";
+//                "Categories,Tags,Description,Captions,Faces,ImageType,Color,Adult";
 
         /** Default visual features to request. */
         private static final String MS_CV_API_DEFAULT_LANGUAGE = "en";
 
-        /** Default visual features to request. You may need to change this value. */
-        //private static final String MS_CV_API_DEFAULT_DETAILS = "Landmarks";
-        private static final String MS_CV_API_DEFAULT_DETAILS = "Landmarks,Celebrities";
+//        /** Default visual features to request. You may need to change this value. */
+//        //private static final String MS_CV_API_DEFAULT_DETAILS = "Landmarks";
+//        private static final String MS_CV_API_DEFAULT_DETAILS = "Landmarks,Celebrities";
 
         /** Subscription key. */
         private static final String SUBSCRIPTION_KEY = BuildConfig.API_KEY;
@@ -188,8 +188,8 @@ class Tasks {
             // Prepare our API request
             String requestURL = Uri.parse(MS_CV_API_URL)
                     .buildUpon()
-                    .appendQueryParameter("visualFeatures", MS_CV_API_DEFAULT_VISUAL_FEATURES)
-                    .appendQueryParameter("details", MS_CV_API_DEFAULT_DETAILS)
+//                    .appendQueryParameter("visualFeatures", MS_CV_API_DEFAULT_VISUAL_FEATURES)
+//                    .appendQueryParameter("details", MS_CV_API_DEFAULT_DETAILS)
                     .appendQueryParameter("language", MS_CV_API_DEFAULT_LANGUAGE)
                     .build()
                     .toString();
