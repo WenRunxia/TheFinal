@@ -122,7 +122,7 @@ class Tasks {
 
         /** Url for the MS cognitive services API. */
         private static final String MS_CV_API_URL =
-                "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText[?mode]";
+                "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
 
         /** Default visual features to request. You may need to change this value. */
         private static final String MS_CV_API_DEFAULT_VISUAL_FEATURES =
