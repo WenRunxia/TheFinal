@@ -27,9 +27,12 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.util.SparseIntArray;
+import android.view.Surface;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
@@ -214,7 +217,6 @@ public final class Photo_Catcher extends AppCompatActivity {
         photoRequestActive = true;
         startActivityForResult(takePictureIntent, IMAGE_CAPTURE_REQUEST_CODE);
     }
-
     /** Initiate the image recognition process. */
     private void startProcessImage() {
         if (currentBitmap == null) {
@@ -223,13 +225,14 @@ public final class Photo_Catcher extends AppCompatActivity {
             Log.w(TAG, "No image selected");
             return;
         }
-
+        FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(currentBitmap);
+        Processor.ProcessImageTask(image);
         /*
          * Launch our background task which actually makes the request. It will call
          * finishProcessImage below with the JSON string when it finishes.
          */
-        new Tasks.ProcessImageTask(Photo_Catcher.this, requestQueue)
-                .execute(currentBitmap);
+        /**new Tasks.ProcessImageTask(Photo_Catcher.this, requestQueue)
+                .execute(currentBitmap);*/
     }
 
     /**

@@ -78,4 +78,7 @@ dependencies {
     implementation files('libs/gson-2.8.5.jar')
     implementation files('libs/volley.jar')
     implementation files('libs/json-20180813.jar')
+    implementation 'com.google.firebase:firebase-core:16.0.8'
+    implementation 'com.google.firebase:firebase-ml-vision:19.0.3'
 }
+apply plugin: 'com.google.gms.google-services'

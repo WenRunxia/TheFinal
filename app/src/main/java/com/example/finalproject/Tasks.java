@@ -122,7 +122,7 @@ class Tasks {
 
         /** Url for the MS cognitive services API. */
         private static final String MS_CV_API_URL =
-                "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
+                "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText[Printed]";
 
 //        /** Default visual features to request. You may need to change this value. */
 //        private static final String MS_CV_API_DEFAULT_VISUAL_FEATURES =
@@ -182,15 +182,12 @@ class Tasks {
              * Convert the image from a Bitmap to a byte array for upload.
              */
             final ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            currentBitmap[0].compress(Bitmap.CompressFormat.PNG,
+            currentBitmap[0].compress(Bitmap.CompressFormat.JPEG,
                     DEFAULT_COMPRESSION_QUALITY_LEVEL, stream);
 
             // Prepare our API request
             String requestURL = Uri.parse(MS_CV_API_URL)
                     .buildUpon()
-//                    .appendQueryParameter("visualFeatures", MS_CV_API_DEFAULT_VISUAL_FEATURES)
-//                    .appendQueryParameter("details", MS_CV_API_DEFAULT_DETAILS)
-                    .appendQueryParameter("language", MS_CV_API_DEFAULT_LANGUAGE)
                     .build()
                     .toString();
             Log.d(TAG, "Using URL: " + requestURL);
