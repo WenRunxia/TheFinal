@@ -17,8 +17,8 @@ public final class Dish_Screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dish_screen);
         findViewById(R.id.backToHome).setOnClickListener(v -> {
-            Intent newintent = new Intent(this, Photo_Catcher.class);
-            startActivity(newintent);
+            Intent newIntent = new Intent(this, Photo_Catcher.class);
+            startActivity(newIntent);
         });
         final TextView json = findViewById(R.id.jsonDoc);
         json.setMovementMethod(new ScrollingMovementMethod());
@@ -33,12 +33,12 @@ public final class Dish_Screen extends AppCompatActivity {
         String result;
         final TextView info = findViewById(R.id.dishInfo);
         final ImageView dish = findViewById(R.id.dishImage);
-        Drawable toshow;
+        Drawable toShow;
         if (Processor.resultText.contains("Beef")) {
             result = Processor.readFromfile("beef/beef.txt", this);
             info.setText(result);
-            toshow = Processor.loadPhoto("beef/beef.jpeg", this);
-            dish.setImageDrawable(toshow);
+            toShow = Processor.loadPhoto("beef/beef.jpeg", this);
+            dish.setImageDrawable(toShow);
         }
     }
 }
