@@ -18,6 +18,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -129,6 +130,8 @@ public final class Photo_Catcher extends AppCompatActivity {
     }
     private void screenShift() {
         Intent intent = new Intent(this, Dish_Screen.class);
+        String myJson = Processor.resultText;
+        intent.putExtra("json", myJson);
         startActivity(intent);
     }
     /**
@@ -226,7 +229,7 @@ public final class Photo_Catcher extends AppCompatActivity {
             return;
         }
         FirebaseVisionImage image = FirebaseVisionImage.fromBitmap(currentBitmap);
-        Processor.ProcessImageTask(image);
+        Processor.recognizeText(image);
         /*
          * Launch our background task which actually makes the request. It will call
          * finishProcessImage below with the JSON string when it finishes.
