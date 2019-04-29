@@ -22,6 +22,8 @@ public final class Dish_Screen extends AppCompatActivity {
         });
         final TextView json = findViewById(R.id.jsonDoc);
         json.setMovementMethod(new ScrollingMovementMethod());
+        final TextView dish = findViewById(R.id.dishInfo);
+        dish.setMovementMethod(new ScrollingMovementMethod());
         final Button show = findViewById(R.id.Show);
         show.setOnClickListener(v -> {
             json.setVisibility(View.VISIBLE);
