@@ -16,8 +16,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/dishImage"
@@ -66,12 +68,15 @@
     <TextView
         android:id="@+id/dishInfo"
         android:layout_width="0dp"
-        android:layout_height="107dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="50dp"
         android:background="@color/colorAccent"
+        android:singleLine="false"
         android:text="Ingredient and Allergen"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/colorAccent"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
         android:typeface="normal"
         app:layout_constraintBottom_toBottomOf="@+id/scrollView"
         app:layout_constraintEnd_toEndOf="@+id/scrollView"
@@ -80,32 +85,18 @@
         app:layout_constraintTop_toTopOf="@+id/scrollView"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/jsonDoc"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="50dp"
-        android:background="@color/colorAccent"
-        android:scrollbars="vertical"
-        android:text=""
-        android:textColor="@color/colorAccent"
-        app:layout_constraintBottom_toTopOf="@+id/dishInfo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dishImage" />
-
     <Button
         android:id="@+id/Show"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="175dp"
         android:background="@android:drawable/alert_light_frame"
         android:text="Show"
-        app:layout_constraintBottom_toTopOf="@+id/jsonDoc"
+        app:layout_constraintBottom_toBottomOf="@+id/dishInfo"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/scrollView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </android.support.constraint.ConstraintLayout>

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.util.SparseIntArray;
 import android.view.Surface;
 import android.graphics.drawable.Drawable;
+import java.io.FileOutputStream;
 
 import android.support.annotation.NonNull;
 
@@ -72,7 +73,7 @@ public class Processor {
             input = new BufferedReader(isr);
             String line = "";
             while ((line = input.readLine()) != null) {
-                returnString.append(line);
+                returnString.append("\n" + line);
             }
         } catch (Exception e) {
             e.getMessage();

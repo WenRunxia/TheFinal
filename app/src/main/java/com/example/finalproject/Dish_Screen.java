@@ -23,14 +23,10 @@ public final class Dish_Screen extends AppCompatActivity {
         });
         final ConstraintLayout layout = findViewById(R.id.layout);
         layout.setBackground(Processor.loadPhoto("background.jpg", this));
-        final TextView json = findViewById(R.id.jsonDoc);
-        json.setMovementMethod(new ScrollingMovementMethod());
         final TextView dish = findViewById(R.id.dishInfo);
         dish.setMovementMethod(new ScrollingMovementMethod());
         final Button show = findViewById(R.id.Show);
         show.setOnClickListener(v -> {
-            json.setVisibility(View.VISIBLE);
-            json.setText(Processor.resultText);
             showInfo();
         });
     }
@@ -41,7 +37,7 @@ public final class Dish_Screen extends AppCompatActivity {
         Drawable toShow;
         if (Processor.resultText.contains("Cow Leaf")) {
             result = Processor.readFromfile("beeftripe/beeftripe.txt", this);
-            info.setText(result);
+            info.setText(result.replace("\\n", "\n"));
             toShow = Processor.loadPhoto("beeftripe/beeftripe.jpg", this);
             dish.setImageDrawable(toShow);
             return;
@@ -49,14 +45,14 @@ public final class Dish_Screen extends AppCompatActivity {
         if (Processor.resultText.contains("Never Forget Chicken")) {
             result = Processor.readFromfile("chicken/chicken.txt", this);
             info.setText(result);
-            toShow = Processor.loadPhoto("chicken/chicken.jpg", this);
+            toShow = Processor.loadPhoto("chicken/chicken.png", this);
             dish.setImageDrawable(toShow);
             return;
         }
         if (Processor.resultText.contains("Pork Belly")) {
             result = Processor.readFromfile("porkbelly/porkbelly.txt", this);
-            info.setText(result);
-            toShow = Processor.loadPhoto("porkbelly/porkbelly.jpg", this);
+            info.setText(result.replace("\\n", "\n"));
+            toShow = Processor.loadPhoto("porkbelly/porkbelly.png", this);
             dish.setImageDrawable(toShow);
             return;
         }
@@ -75,6 +71,7 @@ public final class Dish_Screen extends AppCompatActivity {
             return;
         } else {
             toShow = Processor.loadPhoto("error.jpg",this);
+            dish.setImageDrawable(toShow);
             info.setText("Sorry, this dish is not currently in the database.");
         }
     }

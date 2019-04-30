@@ -240,12 +240,10 @@ public final class Photo_Catcher extends AppCompatActivity {
         /*
          * Pretty-print the JSON into the bottom text-view to help with debugging.
          */
-        TextView textView = findViewById(R.id.jsonDoc);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         JsonParser jsonParser = new JsonParser();
         JsonElement jsonElement = jsonParser.parse(jsonResult);
         String prettyJsonString = gson.toJson(jsonElement);
-        textView.setText(prettyJsonString);
 
     }
 
