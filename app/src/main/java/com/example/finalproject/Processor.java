@@ -100,7 +100,7 @@ public class Processor {
             return d;
         }
         catch(IOException ex) {
-            Log.d(TAG, "You mess up");
+            Log.d(TAG, "You messed up");
             return null;
         }
     }
