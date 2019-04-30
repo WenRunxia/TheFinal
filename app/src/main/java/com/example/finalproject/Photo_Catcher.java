@@ -9,10 +9,12 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
@@ -25,7 +27,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.util.SparseIntArray;
@@ -89,7 +93,8 @@ public final class Photo_Catcher extends AppCompatActivity {
 
         // Load the main layout for our activity
         setContentView(R.layout.photo_catcher);
-
+        final ConstraintLayout layout = findViewById(R.id.layout);
+        layout.setBackground(Processor.loadPhoto("background.jpg", this));
         /*
          * Set up handlers for each button in our UI. These run when the buttons are clicked.
          */
@@ -112,7 +117,11 @@ public final class Photo_Catcher extends AppCompatActivity {
 
         // There are a few button that we disable into an image has been loaded
         enableOrDisableButtons(false);
-
+        final Button reset = findViewById(R.id.reset);
+        reset.setOnClickListener(v -> {
+            updateCurrentBitmap(null, false);
+            enableOrDisableButtons(false);
+        });
         /*
          * Here we check for permission to write to external storage and request it if necessary.
          * Normally you would not want to do this on ever start, but we want to be persistent

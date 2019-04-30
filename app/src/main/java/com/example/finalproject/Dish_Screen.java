@@ -3,6 +3,7 @@ package com.example.finalproject;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -20,6 +21,8 @@ public final class Dish_Screen extends AppCompatActivity {
             Intent newIntent = new Intent(this, Photo_Catcher.class);
             startActivity(newIntent);
         });
+        final ConstraintLayout layout = findViewById(R.id.layout);
+        layout.setBackground(Processor.loadPhoto("background.jpg", this));
         final TextView json = findViewById(R.id.jsonDoc);
         json.setMovementMethod(new ScrollingMovementMethod());
         final TextView dish = findViewById(R.id.dishInfo);
